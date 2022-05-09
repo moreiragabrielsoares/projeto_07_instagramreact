@@ -1,81 +1,55 @@
 
 
+function SidebarUser(props) {
+    
+    return (
+        <div class="usuario">
+            <img src={props.imageUser} />
+            <div class="texto">
+                <strong>{props.nameUser}</strong>
+                {props.firstNameUser}
+            </div>
+        </div>
+    )
+}
+
 export default function Sidebar() {
+    
+    const suggestionList = [
+        {userImage: "assets/img/bad.vibes.memes.svg" , userName: "bad.vibes.memes" , reason: "Segue você"}, 
+        {userImage: "assets/img/chibirdart.svg" , userName: "chibirdart" , reason: "Segue você"},
+        {userImage: "assets/img/razoesparaacreditar.svg" , userName: "razoesparaacreditar" , reason: "Novo no Instagram"},
+        {userImage: "assets/img/adorable_animals.svg" , userName: "adorable_animals" , reason: "Segue você"},
+        {userImage: "assets/img/smallcutecats.svg" , userName: "smallcutecats" , reason: "Segue você"},
+    ];
+    
     return (
         <div class="sidebar">
-            <div class="usuario">
-                <img src="assets/img/catanacomics.svg" />
-                <div class="texto">
-                    <strong>catanacomics</strong>
-                    Catana
-                </div>
-            </div>
+            <SidebarUser 
+                imageUser="assets/img/catanacomics.svg"
+                nameUser="catanacomics"
+                firstNameUser="Catana"
+            />
 
             <div class="sugestoes">
                 <div class="titulo">
                     Sugestões para você
                     <div>Ver tudo</div>
                 </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/bad.vibes.memes.svg" />
-                        <div class="texto">
-                            <div class="nome">bad.vibes.memes</div>
-                            <div class="razao">Segue você</div>
+                
+                {suggestionList.map(userList => 
+                    <div class="sugestao">
+                        <div class="usuario">
+                            <img src={userList.userImage} />
+                            <div class="texto">
+                                <div class="nome">{userList.userName}</div>
+                                <div class="razao">{userList.reason}</div>
+                            </div>
                         </div>
+
+                        <div class="seguir">Seguir</div>
                     </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/chibirdart.svg" />
-                        <div class="texto">
-                            <div class="nome">chibirdart</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/razoesparaacreditar.svg" />
-                        <div class="texto">
-                            <div class="nome">razoesparaacreditar</div>
-                            <div class="razao">Novo no Instagram</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/adorable_animals.svg" />
-                        <div class="texto">
-                            <div class="nome">adorable_animals</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/smallcutecats.svg" />
-                        <div class="texto">
-                            <div class="nome">smallcutecats</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
+                )}
             </div>
 
             <div class="links">
